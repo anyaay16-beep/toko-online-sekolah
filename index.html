@@ -23,20 +23,6 @@
                 <a href="#">Home</a>
                 <a href="#produk-container">Produk</a>
                 <a href="#kontak">Kontak</a>
-            </div>
-            <button class="nav-btn">Masuk</button>
-        </div>
-    </nav>
-
-    <!-- KONTEN UTAMA / HERO SECTION (STRUKTUR UTAMA SISWA A) -->
-    <section class="hero">
-        <div class="container hero-inner">
-            <div class="hero-text">
-                <span class="eyebrow">Platform sekolah modern</span>
-                <h1>Solusi belanja kebutuhan sekolah yang lebih praktis.</h1>
-                    <p>Mart Skansakita hadir untuk memudahkan siswa, guru, dan orang tua dalam memenuhi kebutuhan belajar dengan layanan yang cepat, nyaman, dan terpercaya.</p>
-                <div class="hero-actions">
-                    <button class="primary-btn">Mulai</button>
                     <button class="secondary-btn" onclick="document.querySelector('#produk-container').scrollIntoView({ behavior: 'smooth' });">Lihat Produk</button>
                 </div>
             </div>
@@ -56,61 +42,61 @@
         <!-- SECTION KONTAK -->
         <section class="contact-section" id="kontak">
             <div class="container">
+                <div class="contact-intro">
+                    <span class="section-kicker">Bantuan & informasi</span>
+                    <h2>Butuh bantuan dengan pesanan sekolah?</h2>
+                    <p>Hubungi tim Mart Skansakita. Kami siap membantu pada hari sekolah, pukul 07.00-15.00.</p>
+                </div>
+
                 <div class="contact-grid">
-                    
-                    <!-- Detail Informasi Kontak (Sisi Kiri) -->
                     <div class="contact-info">
-                        <div class="section-heading left-align">
-                            <span>Hubungi Kami</span>
-                            <h2>Punya Pertanyaan Seputar Mart Skansakita?</h2>
-                        </div>
-                        <p class="contact-desc">Tim administrasi kami siap membantu Anda memenuhi kebutuhan belajar dengan layanan yang cepat dan terpercaya.</p>
-                        
                         <div class="contact-details">
-                            <div class="contact-item">
-                                <div class="contact-icon">📞</div>
-                                <div>
+                            <a class="contact-item" href="tel:088811110000">
+                                <span class="contact-icon" aria-hidden="true">☎</span>
+                                <span>
                                     <strong>Telepon</strong>
-                                    <p>0888-1111-0000</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">✉</div>
-                                <div>
+                                    <span>0888-1111-0000</span>
+                                </span>
+                            </a>
+                            <a class="contact-item" href="mailto:martskansakita@gmail.com">
+                                <span class="contact-icon" aria-hidden="true">✉</span>
+                                <span>
                                     <strong>Email</strong>
-                                    <p>martskansakita@gmail.com</p>
-                                </div>
-                            </div>
+                                    <span>martskansakita@gmail.com</span>
+                                </span>
+                            </a>
                             <div class="contact-item">
-                                <div class="contact-icon">📍</div>
-                                <div>
-                                    <strong>Alamat</strong>
-                                    <p>Jl. Pucang, SMK NEGERI 1 BAWANG, Banjarnegara</p>
-                                </div>
+                                <span class="contact-icon" aria-hidden="true">⌖</span>
+                                <span>
+                                    <strong>Lokasi</strong>
+                                    <span>SMK Negeri 1 Bawang, Banjarnegara</span>
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Formulir Kirim Pesan (Sisi Kanan) -->
                     <div class="contact-card">
-                        <form class="contact-form" onsubmit="event.preventDefault(); document.getElementById('status-pesan').classList.add('is-visible');">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-heading">
+                                <h3>Kirim pesan</h3>
+                                <p>Isi formulir berikut dan tim kami akan segera merespons.</p>
+                            </div>
                             <div class="form-row">
                                 <label for="nama">Nama lengkap</label>
-                                <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required class="contact-input">
+                                <input type="text" id="nama" name="nama" placeholder="Nama lengkap Anda" required class="contact-input">
                             </div>
                             <div class="form-row">
-                                <label for="email">Email Anda</label>
-                                <input type="email" id="email" placeholder="Masukkan alamat email Anda" required class="contact-input">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="nama@email.com" required class="contact-input">
                             </div>
                             <div class="form-row">
-                                <label for="pesan">Pesan Anda</label>
-                                <textarea id="pesan" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required class="contact-textarea"></textarea>
+                                <label for="pesan">Pesan</label>
+                                <textarea id="pesan" name="pesan" placeholder="Tuliskan pertanyaan Anda..." required class="contact-textarea"></textarea>
                             </div>
                             <button type="submit" class="primary-btn full-width">Kirim Pesan</button>
-                            <p class="form-status" id="status-pesan">Terima kasih! Pesan Anda telah berhasil dikirim.</p>
+                            <p class="form-status" id="status-pesan" role="status" aria-live="polite"></p>
                         </form>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -124,10 +110,24 @@
                         <span>Mart Skansakita</span>
                     </a>
 
-                    <p>coba coba</p>
+                    <p>Belanja kebutuhan sekolah dengan mudah.</p>
                     <p>&copy; 2026 Mart Skansakita. Semua hak dilindungi.</p>
                 </div>
             </div>
         </footer>
 
     </div>
+
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('status-pesan');
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            contactStatus.textContent = 'Pesan berhasil dikirim. Tim kami akan segera menghubungi Anda.';
+            contactStatus.classList.add('is-visible');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
