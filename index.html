@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mart Sekolah</title>
+    <title>Mart Skansakita</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Mengambil font Plus Jakarta Sans agar gaya tulisan lebih modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- NAVBAR (STRUKTUR UTAMA SISWA A) -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <div class="brand">
-                <span class="brand-mark">M</span>
-                <span>Mart Sekolah</span>
-            </div>
+            <a href="#" class="brand">
+                <div class="brand-mark">M</div>
+                <span>Mart Skansakita</span>
+            </a>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">Tentang</a>
-                <a href="#features">Fitur</a>
+                <a href="#">Home</a>
+                <a href="#produk-container">Produk</a>
+                <a href="#kontak">Kontak</a>
+                    <button class="secondary-btn" onclick="document.querySelector('#produk-container').scrollIntoView({ behavior: 'smooth' });">Lihat Produk</button>
+                </div>
             </div>
-            <button class="nav-btn">Masuk</button>
         </div>
-    </nav>
+    </section>
 
         <header id="home" class="hero">
         <div class="container hero-inner">
@@ -195,41 +199,105 @@
         </section>
 
         <section id="features" class="features-section">
+    <!-- TEMPAT UNTUK DAFTAR PRODUK (TUGAS SISWA B) -->
+    <div id="produk-container">
+        <!-- Siswa B akan mengisi bagian produk di sini -->
+    </div>
+
+        <!-- ==========================================================================
+       BAGIAN TUGAS SISWA C (Contact & Footer Section - Mart Skansakita)
+       ========================================================================== -->
+    <div id="footer-container">
+        
+        <!-- SECTION KONTAK -->
+        <section class="contact-section" id="kontak">
             <div class="container">
-                <div class="section-heading">
-                    <span>Fitur utama</span>
-                    <h2>Dirancang untuk kenyamanan pengguna</h2>
+                <div class="contact-intro">
+                    <span class="section-kicker">Bantuan & informasi</span>
+                    <h2>Butuh bantuan dengan pesanan sekolah?</h2>
+                    <p>Hubungi tim Mart Skansakita. Kami siap membantu pada hari sekolah, pukul 07.00-15.00.</p>
                 </div>
 
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <div class="icon-box">01</div>
-                        <h3>Dashboard Ringkas</h3>
-                        <p>Informasi utama tersaji jelas dan rapi untuk memudahkan akses pengguna.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="icon-box">02</div>
-                        <h3>Desain Modern</h3>
-                        <p>Tampilan elegan dengan nuansa warna yang fresh dan nyaman dilihat.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="icon-box">03</div>
-                        <h3>Responsif</h3>
-                        <p>Layout bekerja dengan baik di desktop, tablet, maupun perangkat mobile.</p>
-                    </article>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-details">
+                            <a class="contact-item" href="tel:088811110000">
+                                <span class="contact-icon" aria-hidden="true">☎</span>
+                                <span>
+                                    <strong>Telepon</strong>
+                                    <span>0888-1111-0000</span>
+                                </span>
+                            </a>
+                            <a class="contact-item" href="mailto:martskansakita@gmail.com">
+                                <span class="contact-icon" aria-hidden="true">✉</span>
+                                <span>
+                                    <strong>Email</strong>
+                                    <span>martskansakita@gmail.com</span>
+                                </span>
+                            </a>
+                            <div class="contact-item">
+                                <span class="contact-icon" aria-hidden="true">⌖</span>
+                                <span>
+                                    <strong>Lokasi</strong>
+                                    <span>SMK Negeri 1 Bawang, Banjarnegara</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-heading">
+                                <h3>Kirim pesan</h3>
+                                <p>Isi formulir berikut dan tim kami akan segera merespons.</p>
+                            </div>
+                            <div class="form-row">
+                                <label for="nama">Nama lengkap</label>
+                                <input type="text" id="nama" name="nama" placeholder="Nama lengkap Anda" required class="contact-input">
+                            </div>
+                            <div class="form-row">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="nama@email.com" required class="contact-input">
+                            </div>
+                            <div class="form-row">
+                                <label for="pesan">Pesan</label>
+                                <textarea id="pesan" name="pesan" placeholder="Tuliskan pertanyaan Anda..." required class="contact-textarea"></textarea>
+                            </div>
+                            <button type="submit" class="primary-btn full-width">Kirim Pesan</button>
+                            <p class="form-status" id="status-pesan" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="brand footer-brand">
-                <span class="brand-mark">M</span>
-                <span>Mart Sekolah</span>
+        <!-- FOOTER HALAMAN -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <a href="#" class="brand">
+                        <div class="brand-mark">M</div>
+                        <span>Mart Skansakita</span>
+                    </a>
+
+                    <p>Belanja kebutuhan sekolah dengan mudah.</p>
+                    <p>&copy; 2026 Mart Skansakita. Semua hak dilindungi.</p>
+                </div>
             </div>
-            <p>© 2026 Mart Sekolah. Semua hak dilindungi.</p>
-        </div>
-    </footer>
+        </footer>
+
+    </div>
+
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('status-pesan');
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            contactStatus.textContent = 'Pesan berhasil dikirim. Tim kami akan segera menghubungi Anda.';
+            contactStatus.classList.add('is-visible');
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
